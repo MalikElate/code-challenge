@@ -2,12 +2,12 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* registerUser() {
-  const config = {
-    headers: { 'Content-Type': 'application/json' },
-    withCredentials: true,
-  };
+  // const config = {
+  //   headers: { 'Content-Type': 'application/json' },
+  //   withCredentials: true,
+  // };
   try {
-    const response = yield axios.post('http://localhost:8000/register', config);
+    const response = yield axios.post('http://localhost:8000/register');
     // yield put({ type: 'SET_USER', payload: response.data });
     yield console.log(response)
   } catch (error) {

@@ -1,5 +1,18 @@
 .login-card { 
     display: flex;
     flex-direction: column;
-    max-width: 50%
+    background-color: #FFF;
+    padding: 20px; 
+    box-shadow: 1px 3px 5px #888888;
+    margin: 20px; 
+}
+
+.login-card-div { 
+    margin-top: 16px; 
+}
+
+.register-btn { 
+    height: 40px;  
+    background-color: #FFB703;
+    border: none; 
 }

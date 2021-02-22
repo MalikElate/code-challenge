@@ -7,19 +7,34 @@ const RegisterForm = () => {
   const [ name, setName] = useState('');
   const [ email, setEmail] = useState('');
   const [ password, setPassword] = useState('');
+  const [ confirmPassword, setConfirmPassword] = useState('');
   const history = useHistory(); 
   const dispatch = useDispatch(); 
   return (
-    <div className='login-card'>
-      <h1>Hello from register form</h1>
+    <div className='login-card'> 
+      <h1>Register</h1>
+    <div className='login-card-div'>
       <label>Name</label>
-      <input placeholder='name' onChange={(e) => setName(e.target.value)}/>
+      <input className='text-input' onChange={(e) => setName(e.target.value)}/>
+    </div>
+    <div className='login-card-div'>
       <label>Email</label>
-      <input placeholder='email' onChange={(e) => setEmail(e.target.value)}/>
+      <input className='text-input' onChange={(e) => setEmail(e.target.value)}/>
+    </div>
+    <div className='login-card-div'>
       <label>Password</label>
-      <input placeholder='password' onChange={(e) => setPassword(e.target.value)}/>
-      <button onClick={() => dispatch({type: 'REGISTER_USER', payload: {name: name, email: email, password: password}})}> Register </button>
-      <p onClick={() => { history.push('/login') }}>Already have an account? login</p>
+      <input className='text-input' onChange={(e) => setPassword(e.target.value)}/>
+    </div>
+    <div className='login-card-div'>
+      <label>Confirm Password</label>
+      <input className='text-input' onChange={(e) => setConfirmPassword(e.target.value)}/>
+    </div>
+    <div className='login-card-div'>
+      <button className='register-btn' onClick={() => dispatch({type: 'REGISTER_USER', payload: 
+        {name: name, email: email, password: password, confirmPassword: confirmPassword}
+      })}> Register </button>
+    </div>
+      <p onClick={() => { history.push('/login') }} className='login-question-p'>Already have an account? login</p>
     </div>
   );
 }

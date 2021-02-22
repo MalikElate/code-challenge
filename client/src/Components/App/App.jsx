@@ -11,10 +11,12 @@ function App() {
   return (
     <Router> 
       <Nav/>
-      <Route exact path="/" component={Landing}></Route>
-      <Route path="/login" component={LoginForm}></Route>
-      <Route path="/register" component={RegisterForm}></Route>
-  </Router>
+      <div className='app'>
+        <Route exact path='/' component={Landing}></Route>
+        <Route path='/login' component={LoginForm}></Route>
+        <Route path='/register' component={RegisterForm}></Route>
+      </div>
+    </Router>
   );
 }
 
