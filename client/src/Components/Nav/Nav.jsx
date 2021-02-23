@@ -1,13 +1,14 @@
+import './nav.css'
 import React from 'react'; 
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <div>
-      <Link to='/'>Home</Link>
-      <Link to='/register'>Login/Register</Link>
+    <header className='nav-bar'>
+      <Link className='nav-link' to='/'>Home</Link>
+      <Link className='nav-link' to='/register'>Login/Register</Link>
       {/* <Link to='/'>Home</Link> */}
-    </div>
+    </header>
   );
 }
 

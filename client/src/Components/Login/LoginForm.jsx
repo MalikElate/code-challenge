@@ -8,15 +8,23 @@ const LoginForm = () => {
   const [ password, setPassword] = useState(''); 
   const history = useHistory(); 
   return (
-    <div>
-      <h1>Hello from login form</h1>
-      <label>Name</label>
-      <input placeholder='name' onChange={(e) => setName(e.target.value)}/>
-      <label>Email</label>
-      <input placeholder='email' onChange={(e) => setEmail(e.target.value)}/>
-      <label>Password</label>
-      <input placeholder='password' onChange={(e) => setPassword(e.target.value)}/>
-      <button onClick={() => console.log(name, email, password)}>Login</button>
+    <div className='login-card'>
+      <h1>Login</h1>
+      <div className='login-card-div'>
+        <label>Name</label>
+        <input className='text-input' onChange={(e) => setName(e.target.value)}/>
+      </div>
+      <div className='login-card-div'> 
+        <label>Email</label>
+        <input className='text-input' onChange={(e) => setEmail(e.target.value)}/>
+      </div>
+      <div className='login-card-div'>
+        <label>Password</label>
+        <input className='text-input' onChange={(e) => setPassword(e.target.value)}/>
+      </div>
+      <div className='login-card-div'>
+        <button className='register-btn' onClick={() => console.log(name, email, password)}>Login</button>
+      </div>
       <p onClick={() => { history.push('/register') }}>Need to create and account? register</p>
     </div>
   );
