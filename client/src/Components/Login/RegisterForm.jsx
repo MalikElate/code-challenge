@@ -32,7 +32,7 @@ const RegisterForm = () => {
       </div>
       <div className='login-card-div'>
         <button className='register-btn' onClick={() => dispatch({type: 'REGISTER_USER', payload: 
-          {name: name, email: email, password: password, confirmPassword: confirmPassword}
+          {name: name, email: email, password: password, confirm_password: confirmPassword}
         })}><b>Register</b></button>
       </div>
       <p onClick={() => { history.push('/login') }} className='login-question-p'>Already have an account? login</p>
