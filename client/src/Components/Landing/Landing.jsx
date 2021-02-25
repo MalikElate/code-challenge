@@ -1,11 +1,14 @@
-import React from 'react'
+import './landing.css';
+import React from 'react';
 
-const LoginForm = () => {
+const Landing = () => {
   return (
-    <div>
-      <h1>Hello from Landing page</h1>
-    </div>
+    <div className='landing-div'> 
+      <h1 className='landing-header'>Welcome to Swish-List</h1>
+      <p className='landing-header'>Learn basketball skills faster with our task management web app</p>
+      <button className='start-btn'><b>Get started for free!</b></button>
+    </div>  
   );
 }
 
-export default LoginForm;
+export default Landing;

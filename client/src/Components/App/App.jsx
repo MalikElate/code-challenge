@@ -6,6 +6,7 @@ import Nav from '../Nav/Nav.jsx';
 import Landing from '../Landing/Landing'; 
 import LoginForm from '../Login/LoginForm'; 
 import RegisterForm from '../Login/RegisterForm'; 
+import TaskPage from '../Tasks/TaskPage'; 
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path='/' component={Landing}></Route>
         <Route path='/login' component={LoginForm}></Route>
         <Route path='/register' component={RegisterForm}></Route>
+        <Route path='/tasks' component={TaskPage}></Route>
       </div>
     </Router>
   );

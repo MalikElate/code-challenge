@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
   return (
     <header className='nav-bar'>
-      <Link className='nav-link' to='/'>Home</Link>
-      <Link className='nav-link' to='/register'>Login/Register</Link>
+      <h3 className='nav-h3'><Link className='nav-link-header' to='/'>Swish-List</Link></h3>
+      <div className='link-div'>
+        {/* <Link style={{ textAlign: 'right'}} className='nav-link' to='/'>Home</Link> */}
+        <Link className='nav-link' to='/register'>Login/Register</Link>
+      </div>
       {/* <Link to='/'>Home</Link> */}
     </header>
   );
