@@ -41,6 +41,8 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+// $app->header('Access-Control-Allow-Headers', 'Origin, Content-Type, Authorization');
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
