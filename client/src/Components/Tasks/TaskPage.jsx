@@ -2,8 +2,8 @@ import './tasks.css';
 import React, { useState, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
 import Skill from './Skill'; 
-import DisplayMode from './DisplayMode'; 
-import SearchMode from './SearchMode'; 
+import DisplayMode from './SearchMode'; 
+import SearchMode from './AddMode'; 
 
 const TasksPage = () => {
   const dispatch = useDispatch();
