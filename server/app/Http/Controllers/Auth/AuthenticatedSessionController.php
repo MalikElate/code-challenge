@@ -15,9 +15,10 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create(LoginRequest $request)
     {
-        return view('auth.login');
+        // return view('auth.login');
+        return 'test'; 
     }
 
     /**
@@ -32,7 +33,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return $request->user(); 
+
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

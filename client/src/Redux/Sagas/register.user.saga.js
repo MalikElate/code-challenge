@@ -9,12 +9,13 @@ function* registerUser(action) {
       user.append('email', action.payload.email)
       user.append('password', action.payload.password)
       user.append('password_confirmation', action.payload.confirm_password)
-    yield axios({
+    const response = yield axios({
       method: 'post',
       url: 'http://localhost:8000/register',
       data: user,
       headers: {'Content-Type': 'multipart/form-data' }
     })
+    yield console.log(response); 
     yield put({type: 'FETCH_USER'}); 
   } catch (error) {
     console.log('User registration request failed', error);

@@ -4,7 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* loginUser(action) {
   try {
-    var user = new FormData(); 
+    let user = new FormData(); 
       user.append('_token', 'RIaRe3RP5bpzFusYR9KnrsZnfunFlOEsLK8RMHgm' )
       user.append('email', action.payload.email)
       user.append('password', action.payload.password)

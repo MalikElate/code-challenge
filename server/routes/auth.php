@@ -8,7 +8,22 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\GetAuthenticatedUserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;  
+
+Route::get('/getauthuser', function (Request $request) { 
+
+    // $request->session()->regenerate();
+    // $user = Auth::user();
+    // $id = Auth::id();
+    if (Auth::check())
+    {
+        // The user is logged in...
+        return 'logged it';
+    }
+    return 'logged out';
+ });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
