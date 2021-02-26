@@ -32,10 +32,10 @@ Route::post('/skills', function (Request $request) {
         values (?, 'incomplete', ?);", [$skill, $tag]
     );
     return [$skill, $tag];
-    // return $skill;
 });
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::delete('/skills/{id}', function (Request $request, $id) {
+    DB::delete('delete from skills where skill_id = ?', [$id]);
+    return $id;
+});
 
