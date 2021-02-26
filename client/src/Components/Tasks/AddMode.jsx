@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 const SearchMode = () => {
   const dispatch = useDispatch(); 
-  const [skill, setSkill] = useState(); 
+  const [skill, setSkill] = useState(''); 
   const [tag, setTag] = useState('Shooting'); 
   return (
     <div className='skill-input-div'>
@@ -16,9 +16,10 @@ const SearchMode = () => {
     />
     <select
       className='skill-tag-select'
-      value={tag}
+      // value={tag}
       onChange={(e) => {
         setTag(e.target.value);
+        console.log(e.target.value)
       }}
     >
       {['Shooting', 'Ball Handling', 'Conditioning', 'Dunking'].map((tag) => (
@@ -28,10 +29,13 @@ const SearchMode = () => {
     <button 
       className='skill-btn' 
       onClick={()=>{
-        console.log(skill, tag); 
-        setTag('Shooting'); 
-        setSkill('');
-        dispatch({type: 'ADD_SKILL', payload: {skill: skill, tag: tag}}); 
+        if(skill) { 
+          dispatch({type: 'ADD_SKILL', payload: {skill: skill, tag: tag}}); 
+          setTag('Shooting'); 
+          setSkill('');
+        } else  { 
+          alert('please enter a skill')
+        }
       }}> Add Skill
     </button>
   </div>

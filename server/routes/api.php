@@ -25,12 +25,14 @@ Route::get('/skills', function (Request $request) {
         return $users;
 });
 Route::post('/skills', function (Request $request) {
-    // DB::insert(
-    //     "insert into skills (skill_name, skill_status, skill_tag)
-    //     values (?, 'incomplete', ?);", ['test', 'test']
-    // );
-
-    return $request->input('skill');
+    $skill = $request->input('skill');
+    $tag = $request->input('tag');
+    DB::insert(
+        "insert into skills (skill_name, skill_status, skill_tag)
+        values (?, 'incomplete', ?);", [$skill, $tag]
+    );
+    return [$skill, $tag];
+    // return $skill;
 });
 
 // Route::get('/user', function (Request $request) {

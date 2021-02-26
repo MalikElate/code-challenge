@@ -7,7 +7,6 @@ function* getSkills(action) {
       method: 'get',
       url: 'http://localhost:8000/api/skills',
     })
-    yield console.log(response.data); 
     yield put({type: 'SET_SKILLS', payload: response.data}); 
   } catch (error) {
     console.log('Skill get request failed', error);
@@ -17,7 +16,8 @@ function* getSkills(action) {
 function* addSkill(action) {
   let skill = new FormData(); 
   skill.append('skill', action.payload.skill)
-  skill.append('tag ', action.payload.tag)
+  skill.append('tag', action.payload.tag)
+  console.log(action.payload.skill)
   try {
     const response = yield axios({
       method: 'post',
