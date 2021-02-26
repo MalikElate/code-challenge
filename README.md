@@ -21,3 +21,19 @@ DB_PASSWORD=password
 5. run: php artisan serve
 6. cd client, npm install the dependencies
 7. (within client) run npm start
+
+
+### Table inspections 
+
+1. Create a skills table
+
+create table skills(
+   skill_id INT NOT NULL AUTO_INCREMENT,
+   skill_name VARCHAR(100) NOT NULL,
+   skill_status VARCHAR(100) NOT NULL,
+skill_tag VARCHAR(100) NOT NULL,
+   PRIMARY KEY ( skill_id )
+);
+
+2. create a users table or migrate the table that is already made with laravel breeze 
+
