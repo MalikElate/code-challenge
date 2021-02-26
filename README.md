@@ -16,6 +16,7 @@ DB_PORT=3306
 DB_DATABASE=code_challenge
 DB_USERNAME=root
 DB_PASSWORD=password
+
 4. create a mysql db named code challenge
 5. run: php artisan serve
 6. cd client, npm install the dependencies
