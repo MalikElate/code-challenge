@@ -21,15 +21,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // get all the skills for a
 Route::get('/skills', function (Request $request) {
         $users = DB::select('select * from skills');
-
         return $users;
 });
+
 Route::post('/skills', function (Request $request) {
     $skill = $request->input('skill');
     $tag = $request->input('tag');
     DB::insert(
         "insert into skills (skill_name, skill_status, skill_tag)
-        values (?, 'incomplete', ?);", [$skill, $tag]
+        values (?, 'complete', ?);", [$skill, $tag]
     );
     return [$skill, $tag];
 });
@@ -39,3 +39,10 @@ Route::delete('/skills/{id}', function (Request $request, $id) {
     return $id;
 });
 
+Route::put('/skills/{id}/{newStatus}', function (Request $request, $id, $newStatus) {
+    DB::update(
+        "update skills set skill_status = ? where skill_id = ?",
+        [$newStatus, $id]
+    );
+    return $id;
+});

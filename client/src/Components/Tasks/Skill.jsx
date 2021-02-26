@@ -4,15 +4,20 @@ import { useDispatch } from 'react-redux';
 const Skill = (props) => {
   const { skill } = props; 
   const dispatch = useDispatch();
+  let btnmsg; 
+  skill.skill_status === 'complete'? btnmsg = 'incomplete' : btnmsg = 'complete';
+  let cardColor; 
+  skill.skill_status === 'complete'? cardColor = '#8ecae6' : cardColor = '#EEE';
   return (
-    <div className='skill-card'>
-      <h4 className='skill-card-header'>{skill.skill_name}</h4>
+    <div className='skill-card' style={{backgroundColor: cardColor}}>
+      <h4 className={btnmsg}>{skill.skill_name}</h4>
       <p>{skill.skill_tag}</p>
       <button className='skill-btn' onClick={()=> {
         dispatch({type: 'DELETE_SKILL', payload: {id: skill.skill_id}})
-        console.log('deleting', skill.skill_id)}
-      }> Remove</button>
-      <button className='skill-btn'>Complete</button>
+      }}> Remove</button>
+      <button className='skill-btn' onClick={()=> {
+          dispatch({type: 'UPDATE_SKILL', payload: {id: skill.skill_id, status: btnmsg}})
+        }}> {btnmsg} </button>
     </div>
   );
 }

@@ -36,16 +36,30 @@ function* deleteSkill(action) {
       method: 'delete',
       url: `http://localhost:8000/api/skills/${action.payload.id}`,
     })
-    yield console.log('=========DELETE==================----------------------',response); 
     yield put({type: 'GET_SKILLS'}); 
   } catch (error) {
     console.log('Skill delete request failed', error);
   }
 }
+
+function* updateSkill(action) {
+  try {
+    const response = yield axios({
+      method: 'PUT',
+      url: `http://localhost:8000/api/skills/${action.payload.id}/${action.payload.status}`,
+    })
+    yield console.log('=========UPDATE==================----------------------',response); 
+    yield put({type: 'GET_SKILLS'}); 
+  } catch (error) {
+    console.log('Skill delete request failed', error);
+  }
+}
+
 function* skillsSaga() {
   yield takeLatest('GET_SKILLS', getSkills);
   yield takeLatest('ADD_SKILL', addSkill);
   yield takeLatest('DELETE_SKILL', deleteSkill);
+  yield takeLatest('UPDATE_SKILL', updateSkill);
 }
 
 export default skillsSaga;
