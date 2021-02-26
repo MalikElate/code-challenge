@@ -29,7 +29,7 @@ Route::post('/skills', function (Request $request) {
     $tag = $request->input('tag');
     DB::insert(
         "insert into skills (skill_name, skill_status, skill_tag)
-        values (?, 'complete', ?);", [$skill, $tag]
+        values (?, 'incomplete', ?);", [$skill, $tag]
     );
     return [$skill, $tag];
 });
